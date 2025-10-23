@@ -24,10 +24,11 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ "${{ matrix.python-version }}" = "2.7" ]; then
-          pip install "pytest<7.0" -r requirements.txt
+        if [ "${{ matrix.python-version }}" = "2.7" ]; then   #Ensure it can run on 2.7 python
+        python -m pip install --upgrade "pip<21.0"
+        pip install "pytest<7.0" -r requirements.txt
         else
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
         fi
 
