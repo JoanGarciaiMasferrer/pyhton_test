@@ -1,13 +1,16 @@
 name: Python_tests
 
-on: [push]
+on: 
+  push:
+    branches:
+      - '**' 
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['2.7', '3.7.3', '3.1.4', '3.9.0', '3.10.0', '3.14.0'] # Specify which versions of python to test with
+        python-version: ['2.7', '3.7', '3.8', '3.9', '3.10', '3.11'] # Specify which versions of python to test with
       fail-fast: false
 
     steps:
